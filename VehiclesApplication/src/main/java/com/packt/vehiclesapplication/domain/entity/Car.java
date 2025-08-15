@@ -1,4 +1,4 @@
-package com.packt.vehiclesapplication.domain;
+package com.packt.vehiclesapplication.domain.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;

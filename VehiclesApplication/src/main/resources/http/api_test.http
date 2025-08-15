@@ -1,4 +1,61 @@
 ### GET request with a header
-GET https://localhost:8080/cars
-
+GET http://localhost:8080/cars
 Accept: application/json
+
+
+### POST 차량 등록
+POST http://localhost:8080/registerCar
+Content-Type: application/json
+
+{
+  "registrationSeq": "CAR010",
+  "model": "Porsche Taycan",
+  "brand": "Porsche",
+  "color": "white",
+  "price": 120000000,
+  "modelYear": 2023
+}
+
+
+
+
+
+
+
+
+
+
+
+### POST 사용자 등록
+POST http://localhost:8080/registerUser
+Content-Type: application/json
+
+{
+  "name": "Kim Hyun Ji",
+  "age": 23,
+  "email": "superwoman@naver.com",
+  "phone": "01035485618",
+  "address": "서울특별시 봉곡동 5-13"
+}
+
+###  POST 사용자와 차량 함께 등록
+POST http://localhost:8080/registerCarWithUser
+Content-Type: application/json
+
+{
+  "owner": {
+    "name": "Kim Hyun Ji",
+    "age": 23,
+    "email": "superwoman@naver.com",
+    "phone": "01035485618",
+    "address": "서울특별시 봉곡동 5-13"
+  },
+  "car": {
+    "registrationSeq": "ABC123",
+    "model": "Hyundai Avante",
+    "brand": "Hyundai",
+    "color": "deep blue",
+    "price": 35000000,
+    "modelYear": 2022
+  }
+}

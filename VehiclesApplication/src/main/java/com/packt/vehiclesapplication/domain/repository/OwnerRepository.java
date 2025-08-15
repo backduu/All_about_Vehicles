@@ -1,5 +1,6 @@
-package com.packt.vehiclesapplication.domain;
+package com.packt.vehiclesapplication.domain.repository;
 
+import com.packt.vehiclesapplication.domain.entity.Owner;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.*;
@@ -19,5 +20,4 @@ public interface OwnerRepository extends JpaRepository<Owner, Long> {
 
     // 등록일 기준 정렬된 Owner 리스트
     List<Owner> findAllByOrderByCreatedAtDesc();
-
 }

@@ -1,6 +1,8 @@
-package com.packt.vehiclesapplication.domain;
+package com.packt.vehiclesapplication.domain.repository;
 
+import com.packt.vehiclesapplication.domain.entity.Car;
 import org.springframework.data.jpa.repository.JpaRepository;
+
 import java.util.List;
 
 // <Car, Long> 타입의 인수는 이것이 Car 엔티티 클래스의 리포지터리이고 ID 필드의 타입이 Long임을 정의한다.
@@ -33,4 +35,6 @@ public interface CarRepository extends JpaRepository<Car, Long> {
     List<Car> findByBrandAndModelAndColor(String brand, String model, String color);
     // 제작연도 오름차순대로 브랜드로 자동차 검색
     List<Car> findByBrandOrderByModelYearAsc(String brand);
+    // 등록번호 존재하는지 확인
+    Boolean existsByRegistrationSeq(String registrationSeq);
 }

@@ -1,4 +1,4 @@
-package com.packt.vehiclesapplication.domain;
+package com.packt.vehiclesapplication.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -22,9 +22,6 @@ public class Owner {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
-
-    @NotNull(message = "Owner ID는 필수입니다.")
-    private Long owner_id;
 
     @NotBlank(message = "이름은 필수입니다.")
     @Size(min = 2, max = 50, message = "이름은 2자 이상 50자 이하로 입력해주세요.")
