@@ -22,7 +22,7 @@ Spring Boot와 React를 활용한 풀스택 웹 애플리케이션 개발의 흐
 - Java 17
 - Spring Boot 3.4.x
 - Spring Data JPA
-- H2 Database / MariaDB
+- Oracle
 - Spring Validation
 - Spring Boot Admin
 
