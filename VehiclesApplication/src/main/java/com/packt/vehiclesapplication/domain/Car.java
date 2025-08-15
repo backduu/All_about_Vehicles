@@ -2,16 +2,25 @@ package com.packt.vehiclesapplication.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.time.LocalDateTime;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Getter
+@Setter
 public class Car {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
+    private Owner owner;
 
     private String brand;
 
@@ -28,8 +37,6 @@ public class Car {
     @Min(0)
     private int price;
 
-    @Override
-    public String toString(){
-        return String.format("%s %s (%s)", brand, model, color);
-    }
+    @CreationTimestamp
+    private LocalDateTime createdAt;
 }
