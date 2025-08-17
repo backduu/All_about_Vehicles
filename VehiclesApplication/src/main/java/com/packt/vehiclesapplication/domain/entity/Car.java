@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @Builder
 @Getter
 @Setter
+@Table(name = "DT_CAR")
 public class Car {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
