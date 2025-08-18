@@ -1,11 +1,11 @@
 package com.packt.vehiclesapplication.config;
 
 import com.packt.vehiclesapplication.domain.repository.UserRepository;
-import com.packt.vehiclesapplication.dto.UserRegisterDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -26,18 +26,19 @@ public class SecurityConfig {
         http.httpBasic(AbstractHttpConfigurer::disable) // basic authentication filter 비활성화
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/login", "/logout", "/error", "/signup").permitAll()
+                        .requestMatchers("/", "/login", "/logout", "/error", "/signup", "/public").permitAll()
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll() // 정적 자원에 대해서 인증을 하지 않도록 허가
                         .anyRequest().authenticated()
                 )
-                .formLogin(form -> form
-                        .loginPage("/login")
-                        .loginProcessingUrl("/doLogin")
-                        .defaultSuccessUrl("/")
-                        .failureUrl("/login?error=true")
-                        .usernameParameter("username")
-                        .passwordParameter("password")
-                        .permitAll()
+//                .formLogin(form -> form
+//                        .loginPage("/login")
+//                        .loginProcessingUrl("/doLogin")
+//                        .defaultSuccessUrl("/")
+//                        .failureUrl("/login?error=true")
+//                        .usernameParameter("username")
+//                        .passwordParameter("password")
+//                        .permitAll()
+                .formLogin(Customizer.withDefaults()  // 별도 html 없이 기본 로그인 화면 호출
                 )
                 .logout(form->form
                         .logoutUrl("/logout")

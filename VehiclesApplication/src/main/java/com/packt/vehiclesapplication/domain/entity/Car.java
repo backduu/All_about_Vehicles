@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @Table(name = "DT_CAR")
 public class Car {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.SEQUENCE)
     private Long id;
 
     @ManyToOne
