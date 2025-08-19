@@ -20,14 +20,14 @@ Spring Boot와 React를 활용한 풀스택 웹 애플리케이션 개발의 흐
 
 ### Backend
 - Java 17
-- Spring Boot 3.4.x
+- Spring Boot 3.5.4
 - Spring Data JPA
-- Oracle
+- Oracle + DBeaver
 - Spring Validation
 - Spring Boot Admin
 
 ### Frontend
-- React
+- React + Vite
 - Axios
 - Bootstrap / Tailwind
 
