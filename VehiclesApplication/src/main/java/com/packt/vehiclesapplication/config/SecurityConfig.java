@@ -29,7 +29,9 @@ public class SecurityConfig {
                         .requestMatchers("/", "/login", "/logout", "/error", "/signup", "/public").permitAll()
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll() // 정적 자원에 대해서 인증을 하지 않도록 허가
                         .anyRequest().authenticated()
-                )
+                ).formLogin(AbstractHttpConfigurer::disable)
+                .httpBasic(AbstractHttpConfigurer::disable)
+                .csrf(AbstractHttpConfigurer::disable) // 기존 로그인 페이지 제거
 //                .formLogin(form -> form
 //                        .loginPage("/login")
 //                        .loginProcessingUrl("/doLogin")
@@ -37,9 +39,7 @@ public class SecurityConfig {
 //                        .failureUrl("/login?error=true")
 //                        .usernameParameter("username")
 //                        .passwordParameter("password")
-//                        .permitAll()
-                .formLogin(Customizer.withDefaults()  // 별도 html 없이 기본 로그인 화면 호출
-                )
+//                        .permitAll())
                 .logout(form->form
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/")

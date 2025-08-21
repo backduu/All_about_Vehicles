@@ -12,6 +12,4 @@ public class LoginController {
     public String publicEndPoint() {
         return "Anyone can access this!";
     }
-
-
 }
