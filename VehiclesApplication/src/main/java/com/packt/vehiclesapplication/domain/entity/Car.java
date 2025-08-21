@@ -13,9 +13,10 @@ import java.time.LocalDateTime;
 @Builder
 @Getter
 @Setter
+@Table(name = "DT_CAR")
 public class Car {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.SEQUENCE)
     private Long id;
 
     @ManyToOne
